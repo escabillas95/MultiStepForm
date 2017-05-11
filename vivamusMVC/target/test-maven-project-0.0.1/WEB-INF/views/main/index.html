@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>ViVaMus</title>
+    <link rel="stylesheet" type="text/css" href="/resources/stylesheets/mainstyle.css">
+    <!--<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css">-->
+</head>
+<body>
+<!--HEADER***-->
+<header>
+    <a href="/vivamusForm">
+        <img class="logo-default" src="/resources/images/logo-default.png"/>
+        <img class="logo-landscape" src="/resources/images/logo-landscape.png/">
+    </a>
+
+    <ul class="nav">
+        <li> <a href="#bibendum"> Bibendum </a> </li>
+        <li> <a href="#solliciitudin"> Solliciitudin </a> </li>
+        <li> <a href="#metus"> Metus </a> </li>
+        <li> <a href="#egestas"> Egestas </a> </li>
+    </ul>
+    <div class="searchBar">
+        <label for="search"></label>
+        <input type="search" id="search"/>
+        <a href="/vivamusForm">
+            <img src="/resources/images/search-icon.png"/>
+        </a>
+
+    </div>
+    <div class="dropdown">
+        <button onclick="dropBtn()" class="dropBtn">&#9776;</button>
+        <div id="myDropdown" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+            <a href="#bibendum"> Bibendum </a>
+            <a href="#solliciitudin"> Solliciitudin </a>
+            <a href="#metus"> Metus </a>
+            <a href="#egestas"> Egestas </a>
+        </div>
+    </div>
+</header>
+<!--END OF HEADER***-->
+
+<!--ARTICLES STARTS HERE-->
+<section class="articles">
+    <article class="first-article">
+        <h1>
+            In euismod sapien eu maximus tempus
+        </h1>
+        <p>
+            Vestibulum bibendum posuere dui, in pharetra est hendrerit ac.
+            <br>
+            Integer posuere metus lacus
+        </p>
+        <hr>
+    </article>
+</section>
+<!--END OF ARTICLE-->
+
+<div id="formDiv" >
+    <th:block th:if="${message != null}">
+        <!-- /* The message code is returned from the @Controller */ -->
+        <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase( message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
+    </th:block>
+
+<form th:action="@{/submit}" method="post" th:object="${vivamusForm}" id="msform"  class="form" >
+    <!-- progressbar -->
+
+    <ul id="progressbar">
+
+        <li class="active"> </li>
+        <li></li>
+        <li></li>
+    </ul>
+    <!--DISPLAY GENERAL ERRORS HERE!-->
+    <div id="result" class="container"></div>
+
+    <!-- fieldsets -->
+    <fieldset class="current fieldset msFields" id="personalDetails" >
+        <!--//success message-->
+
+        <h3 class="fs-subtitle">About you</h3>
+
+        <div class="yourName">
+            <div id="firstName" class="nameContainer">
+                <label for="fname">  First name*</label>
+                <input id="fname" type="text" class="required fname" name="firstName"  th:classappend="${#fields.hasErrors('firstName')}?'has-error'" th:field="*{firstName}"/>
+                <span class="help-block"></span>
+                <!--<span class="help-block" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" >Required</span>-->
+            </div>
+            <div id="lastName" class="nameContainer">
+                <label for="lname">  Last name*</label>
+                <input id="lname" class="required lastName " type="text" name="lastName" th:classappend="${#fields.hasErrors('lastName')}?'has-error'" th:field="*{lastName}" />
+                <span class="help-block"></span>
+                <!--<span class="help-block" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" >Required</span>-->
+            </div>
+        </div>
+
+        <div class="emailMobile">
+            <label for="email"> Email address*</label>
+            <input id="email" class="required email" type="text" name="email" th:classappend="${#fields.hasErrors('email')}?'has-error'" th:field="*{email}" />
+            <span class="help-block"></span>
+            <!--<span class="help-block" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Required</span>-->
+         </div>
+        <div class="emailMobile">
+            <label for="mobile"> Mobile number*</label>
+            <input id="mobile" class="required mobile" type="text" name="mobile"th:classappend="${#fields.hasErrors('mobile')}?'has-error'" th:field="*{mobile}"/>
+            <span class="help-block"></span>
+            <!--<span class="help-block" th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}">Required</span>-->
+        </div>
+    </fieldset>
+
+    <!--SECOND FIELDSET-->
+    <fieldset id="paymentMethod" class="next msFields">
+        <h3 id="yourDonation" class="fs-subtitle"> Your donation </h3>
+        <div class="tabPayMethod">
+            <input type="button" class="tabBtn" id="payPal" value="PayPal"/>
+            <input type="button" class="tabBtn tabBtnWhite" id="creditCard" value="Credit Card">
+        </div>
+        <div class="donationDiv">
+            <div>
+                <label for="donationAmount">Donation Amount*</label>
+                <input type="text" name="amount" id="donationAmount" class="inputCardInfo required" th:classappend="${#fields.hasErrors('amount')}?'has-error'" th:field="*{amount}"/><!-- th:classappend="${#fields.hasErrors('amount')}?'has-error'" th:field="*{amount}"-->
+                <br><span class="help-block"></span>
+            </div>
+            <div>
+                <label for="cardHolderName">Card Holder Name*</label>
+                <input type="text" name="cardHolder" id="cardHolderName" class="inputCardInfo required" th:classappend="${#fields.hasErrors('cardHolder')}?'has-error'" th:field="*{cardHolder}"/><!--th:classappend="${#fields.hasErrors('cardHolder')}?'has-error'" th:field="*{cardHolder}"-->
+                <br><span class="help-block"></span>
+            </div>
+            <div>
+                <label for="creditCardNo">Credit Card No.*</label>
+                <input type="text" name="creditCardNo" id="creditCardNo" class="inputCardInfo required" th:classappend="${#fields.hasErrors('creditCardNo')}?'has-error'" th:field="*{creditCardNo}"/><!--th:classappend="${#fields.hasErrors('creditCardNo')}?'has-error'" th:field="*{creditCardNo}"-->
+                <br><span class="help-block"></span>
+            </div>
+            <div>
+                <label for="cardSecurityCode">Card Security Code*</label>
+                <input type="text" name="securityCode" id="cardSecurityCode" class="inputCardInfo required" th:classappend="${#fields.hasErrors('securityCode')}?'has-error'" th:field="*{securityCode}"/><!--th:classappend="${#fields.hasErrors('securityCode')}?'has-error'" th:field="*{securityCode}"-->
+                <br><span class="help-block"></span>
+            </div>
+            <div>
+                <label for="expiryDate">Expiry Date*</label>
+                <input type="text" name="expiryDate" id="expiryDate" class="inputCardInfo required" th:classappend="${#fields.hasErrors('expiryDate')}?'has-error'" th:field="*{expiryDate}"/><!-- th:classappend="${#fields.hasErrors('expiryDate')}?'has-error'" th:field="*{expiryDate}"-->
+                    <span class="help-block"></span>
+            </div>
+        </div>
+    </fieldset>
+
+    <!--THIRD FIELDSET-->
+    <fieldset id="commentField" class="comment msFields">
+        <h3 class="fs-subtitle">Leave a comment </h3>
+        <label for="yourComments">Your Message</label><br>
+        <textarea class="comment" id="yourComments"></textarea><br>
+        <input type="checkbox" id="checkBox" class="checkbox-inline"/>
+        <label for="checkBox">Keep Me Anonymous</label>
+    </fieldset>
+    <!--END OF THIRD FIELDSET-->
+
+    <!--BUTTONS-->
+    <div class="buttonDiv" id="nextButton">
+        <input  id="next" type="submit" name="next" class="actionButton " value="Next" />
+        <!--input id="submitBtn" type="submit" name="submit" class="actionButton" value="Finish"/>-->
+        <input  id="back" type="button" name="back" class="actionButton " value="Back" />
+    </div>
+<!--    <a th:href="@{/contributors}" class="glyphicon glyphicon-eye-open">Show Contributors</a>-->
+</form>
+</div>
+<!--<p>Count numbers: <output id="result"></output></p>
+<button id="stopWorker">Stop Worker</button>
+<p class="thankYouMsg"></p>-->
+
+<!--FOOTER-->
+<footer class="panel-footer">
+    <ul class="sphere">
+        <li> <a href="#"> </a></li>
+        <li> <a href="#"> </a> </li>
+        <li> <a href="#"> </a></li>
+        <li> <a href="#"> </a></li>
+        <li> <a href="#"> </a></li>
+    </ul>
+    <div style="clear: both"></div>
+    <ul class="footer-menu">
+        <li> <a href="#Pellentesque"> Pellentesque </a></li>
+        <li> <a href="#Et interdum"> Et interdum </a></li>
+        <li> <a href="#Neque"> Neque </a></li>
+        <li> <a href="#Integer"> Integer </a></li>
+        <li> <a href="#Ullamcorper"> Ullamcorper </a></li>
+        <li> <a href="#Sagittis"> Sagittis </a></li>
+    </ul>
+    <br>
+    <div class="copyright"> Copyright &copy 2015 Proin eget ipsum libero <br>
+        All Rights Reserved.</div>
+</footer>
+<!--FOOTER ENDS HERE-->
+
+<!--scripts-->
+<script th:src="@{/resources/js/jquery-1.9.js}"></script>
+<script th:src="@{/resources/js/jquery.validate.js}"></script>
+<script th:src="@{/resources/js/formJs.js}"></script>
+<script th:src="@{/resources/js/jquery.easing.min.js}"></script>
+<script src="/resources/js/jquery.easing.min.js"></script>
+
+
+</body>
+</html>

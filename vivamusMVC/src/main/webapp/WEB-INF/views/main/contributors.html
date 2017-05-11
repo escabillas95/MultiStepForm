@@ -1,0 +1,147 @@
+<!doctype html>
+</html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>ViVaMus</title>
+    <link rel="stylesheet" type="text/css" href="/resources/stylesheets/mainstyle.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css">
+
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-1">
+            <a href="#">
+                <img class="logo" src="/resources/images/NXTLVL_WEBDEV_VIVA_LOGO.png"/>
+            </a>
+        </div>
+        <div class="header-2">
+            <nav>
+                <ul>
+                    <li><a href="#">Bibendum </a></li>
+                    <li>|</li>
+                    <li><a href="#">Sollicitudin </a></li>
+                    <li>|</li>
+                    <li><a href="#">Metus </a></li>
+                    <li>|</li>
+                    <li><a href="#">Egestas </a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-3">
+            <input class="search" type="search" name="Search" value=""/>
+            <a href="#" onclick="alert('Search not found!')">
+                <img class="search-icon" src="/resources/images/search-icon.png"/>
+            </a>
+        </div>
+    </div>
+</header>
+
+
+
+<!--<div style="clear: both; border: 2px solid gainsboro;
+  border-radius: 20px;
+  position:relative;
+  width: 70%;
+  margin:20px auto 20px auto;"></div>-->
+
+
+
+<form class="container" th:action="@{/update}" method="post" >
+
+    <div class="addCont" >
+        <a th:href="@{/vivamusForm}" class="glyphicon glyphicon-user"></a>
+    </div>
+    <div id="result" style="background: #f0f8ff; text-align: center">
+         <img src="/resources/images/angelgold.jpg" style="display: none">
+    </div>
+    <th:block th:if="${message != null}">
+        <!-- /* The message code is returned from the @Controller */ -->
+        <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
+    </th:block>
+    <table class=" table table-bordered">
+        <tr>
+         <!--   <th>ID:</th>-->
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Actions</th>
+
+            <tr th:each="person: ${persons}">
+                <!--<td th:text="${person.id}"></td>-->
+                <td th:text="${person.firstName}"></td>
+                <td th:text="${person.lastName}"></td>
+                <td th:text="${person.email}"></td>
+                <td th:text="${person.mobile}"></td>
+                <td>
+                    <div class="">
+                        <a th:href= "@{/record/{id}(id=${person.id})}" class="glyphicon glyphicon-pencil"></a>&nbsp;
+                        <a th:href= "@{/delete/{id}(id=${person.id})}" class="glyphicon glyphicon-trash"></a>
+
+                    </div>
+                </td>
+
+        </tr>
+    </table>
+
+</form>
+<div>
+
+    <footer>
+
+        <div class="footer">
+
+            <div>
+                <div class="sphere1"></div>
+                <div class="sphere2"></div>
+                <div class="sphere3"></div>
+                <div class="sphere4"></div>
+                <div class="sphere5"></div>
+            </div>
+
+            <div class="containermenus">
+
+                <div class ="footertext">
+
+                    <a href="#" class="footermenu">Pellentesque</a> <h>&nbsp;&nbsp;|&nbsp;&nbsp;</h>
+                    <a href="#" class="footermenu">Et interdum</a> <h>&nbsp;&nbsp;|&nbsp;&nbsp;</h>
+                    <a href="#" class="footermenu">Neque</a> <h>&nbsp;&nbsp;|&nbsp;&nbsp;</h>
+                    <a href="#" class="footermenu">Integer</a> <h>&nbsp;&nbsp;|&nbsp;&nbsp;</h>
+                    <a href="#" class="footermenu">Ullamcorper</a> <h>&nbsp;&nbsp;|&nbsp;&nbsp;</h>
+                    <a href="#" class="footermenu">Sagittis</a>
+
+                </div>
+
+            </div>
+
+            <div>
+                <p class="copyrighttxt">Copyright © 2015 Proin eget ipsum libero </br> All Rights Reserved.</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+</div>
+
+<!-- //FOOTER ends here-->
+<!--
+<script src="/resources/js/jquery-1.9.js"></script>
+<script src="/resources/js/jquery.validate.js"></script>
+<script src="/resources/js/jquery.validate.min.js"></script>
+<script src="/resources/js/formJs.js"></script>
+<script src="/resources/js/jquery.easing.min.js"></script>
+-->
+
+
+
+
+</body>
+</html>

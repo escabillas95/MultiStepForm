@@ -1,0 +1,427 @@
+
+
+*{
+  margin:0;
+  padding: 0;
+}
+a, ul {
+  text-decoration: none;
+}
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+  color: #468847;
+  background-color: #DFF0D8;
+  border: 1px solid #D6E9C6;
+}
+
+.hasSuccess {
+  color: green;
+}
+.hasErrors {
+  border: 1px solid red !important;
+  border-radius: 10px;
+  color: red !important;
+}
+.help-block{
+  color: red;
+}
+
+
+body {
+
+  //text-align: center;
+  //width: 100%;
+  height: 100%;
+
+  header {
+    display: flex;
+    //width:100%;
+    background: #2DA8C9;
+    flex-wrap: wrap;
+
+    a {
+      margin: 0 auto;
+
+      .logo {
+        padding: 10px;
+        width: 200px;
+        height: 150px;
+      }
+    }
+
+    .nav {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav li {
+      padding: 0 15px;
+      margin: auto;
+
+      a {
+        color: #ffffff;
+        font-size: 30px;
+      }
+    }
+
+    .searchBar {
+      //border: 1px solid black;
+      display: flex;
+      //height: 35px;
+      margin: auto;
+    }
+
+    .searchBar input {
+      background: none;
+      outline-style: none;
+      font-style: italic;
+      font-size: 18px;
+      color: #ffffff;
+      border: 1px solid white;
+      border-radius: 7px;
+      padding: 0;
+      width: 200px;
+      //height: 35px;
+    }
+
+    .searchBar img {
+      margin-top: 5px;
+      margin-left: -35px;
+      width: 23px;
+      height: 23px;
+    }
+
+
+  }
+
+  h1 {
+    text-align: center;
+    color: #2DA8C9;
+    margin: 10px auto 10px auto;
+    font-size: 60px;
+
+  }
+  h2 {
+    text-align: center;
+    color: #2DA8C9;
+    font-size: 40px;
+
+  }
+#formDiv {
+  #msform {
+    padding: 0;
+    margin: 20px auto;
+    position: relative;
+
+
+    //Progress Bar
+    #progressbar {
+      max-width: 85%;
+      margin: 0 auto 30px auto;
+      padding: 0;
+      overflow: hidden;
+      counter-reset: step;
+      li {
+        list-style-type: none;
+        color: #2DA8C9;
+        width: 33.33%;
+        float: left;
+        position: relative;
+        text-align: center;
+
+        //&:hover::before {
+        //  background: #2DA8C9;
+        //  color: #FFFFFF;
+        //}
+
+        &:before {
+          content: counter(step);
+          counter-increment: step;
+          width: 60px;
+          line-height: 60px;
+          display: block;
+          font-size: 40px;
+          color: #2DA8C9;
+          background: #FFFFFF;
+          border-radius: 50%;
+          border: 10px solid #bfbfbf;
+          margin: auto auto auto auto;
+
+        }
+        &:after {
+          content: '';
+          width: 100%;
+          height: 10px;
+          background: #bfbfbf;
+          position: absolute;
+          left: -50%;
+          top: 35px;
+          z-index: -1; /*put it behind the numbers*/
+        }
+        &:first-child:after {
+          content: none;
+        }
+
+        &.active:before {
+          background: #2DA8C9;
+          color: #FFFFFF;
+        }
+        &.active:before + &:active:after {
+          background: #FFFFFF;
+          color: #2DA8C9;
+        }
+      }
+
+    }
+
+    //Fieldset:about you
+    @mixin default-fs() {
+      background: #EBEBEB;
+      border: none;
+      border-radius: 10px;
+      padding: 20px 50px;
+      box-sizing: border-box;
+      max-width: 60%;
+      margin: 0 auto;
+      display: -webkit-flex;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      flex-wrap: wrap;
+      position: relative;
+      color: #2DA8C9;
+      font-size: 20px;
+    }
+    $bgColor: #EBEBEB;
+    $maxWidth: 100%;
+    @mixin default-input($bgColor) {
+
+      border: none;
+      border-radius: 10px;
+      background-color: $bgColor;
+      display: block;
+      margin: 5px;
+      //text-align:center;
+      font-family: Arial;
+      resize: both;
+      min-width: 100%;
+      height: 55px;
+      outline: none;
+      font-size: 18px;
+    }
+    fieldset {
+      background: #EBEBEB;
+      border: none;
+      border-radius: 10px;
+      padding: 20px 30px;
+      box-sizing: border-box;
+      width: 67%;
+      margin: 0 16%;
+      position: relative;
+      color: #2DA8C9;
+      font-size: 20px;
+      h3, #firstName, #lastName, .emailMobile, label {
+        text-align: left;
+        font-family: Arial;
+      }
+
+      .yourName {
+
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        #firstName, #lastName {
+          display: flex;
+          flex-direction: column;
+
+          input {
+            @include default-input(#ffffff);
+
+          }
+        }
+
+      }
+
+      .emailMobile {
+        border: none;
+        margin: 0 1.2%;
+        width: 98%;
+        clear: both;
+
+        label {
+          margin: 10px auto 10px auto;
+        }
+        input, textarea {
+          border: none;
+          border-radius: 10px;
+          position: relative;
+          resize: both;
+          width: 100%;
+          height: 55px;
+          margin: 5px auto 5px auto;
+          outline: none;
+          font-size: 18px;
+
+        }
+      }
+      /*.buttonDiv {
+        clear: both;
+        float: right;
+        width: 80%;
+        height: 55px;
+        border-radius: 10px;
+        border: none;
+        margin: 50px auto 10px auto;
+        position: relative !important;
+        left: 20%;
+
+        .actionButton {
+          border: none;
+          border-radius: 10px;
+          height: 55px;
+          width: 48%;
+          float: right;
+          background: #2DA8C9;
+          color: #FFFFFF;
+          font-size: 30px;
+          outline: none;
+          margin: auto 5px;
+          position: relative!important;
+
+
+
+
+          &:hover, &:focus {
+            border-radius: 10px;
+            border: none;
+            background: #aab0bb;
+            text-shadow: 5px 0 5px 0 rgb(0, 0, 0);
+          }
+
+        }
+      }*/
+    }
+    /*      fieldset:not(:first-of-type) {
+            display: none;
+          }*/
+    .buttonDiv {
+      clear: both;
+      width: 90%;
+      border: none;
+      margin: 2% 10% 2% auto;
+      position: relative !important;
+      #back {
+        display: none;
+        text-align: center;
+        align-items: left;
+        margin-right: 28%;
+      }
+
+      .actionButton {
+        border: none;
+        border-radius: 10px;
+        height: 100%;
+        width: 30%;
+        float: right;
+        margin: auto;
+        background: #2DA8C9;
+        color: #FFFFFF;
+        outline: none;
+        padding: 2%;
+        font-size: 130%;
+        position: relative !important;
+
+        &:hover, &:focus {
+          border-radius: 10px;
+          border: none;
+          background: #aab0bb;
+          text-shadow: 5px 0 5px 0 rgb(0, 0, 0);
+        }
+
+      }
+    }
+
+  }
+}
+
+  .footer{
+
+    text-align: center;
+    height: 320%;
+    display: block;
+    background-color: darkgray;
+    position: relative;
+    z-index: -1;
+    margin-top: 10%;
+
+
+
+    .containermenus{
+      color:white;
+      font-size: 120%;
+      font-family: "Arial Narrow";
+
+      .footermenu:hover{
+
+        background-color: whitesmoke;
+        color: darkgray;
+        border-radius: 6%;
+
+      }
+
+    }
+
+
+
+  }
+
+  /*for sphere design*/
+  .sphere1, .sphere2, .sphere3, .sphere4, .sphere5 {
+    margin: 25px 15px 20px 18px;
+    align-items: center;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+
+  }
+
+  .footertext {
+
+    margin: 0 auto;
+    font-family: Arial;
+    align-content: center;
+    width: 1000px;
+
+
+  }
+
+  .footermenu {
+
+
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+
+  }
+
+  .copyrighttxt {
+    color: white;
+    font-family: Arial;
+    font-size: 100%;
+
+  }
+
+  /*<!--FOOTER ends here-->*/
+}
+
+
+
+
+
+

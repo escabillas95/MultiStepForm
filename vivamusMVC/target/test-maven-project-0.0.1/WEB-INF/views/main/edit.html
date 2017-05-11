@@ -1,0 +1,219 @@
+<!doctype html>
+</html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>ViVaMus</title>
+    <link rel="stylesheet" type="text/css" href="/resources/stylesheets/mainstyle.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css">
+
+
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-1">
+            <a href="#">
+                <img class="logo" src="/resources/images/NXTLVL_WEBDEV_VIVA_LOGO.png"/>
+            </a>
+        </div>
+        <div class="header-2">
+            <nav>
+                <ul>
+                    <li><a href="#">Bibendum </a></li>
+                    <li>|</li>
+                    <li><a href="#">Sollicitudin </a></li>
+                    <li>|</li>
+                    <li><a href="#">Metus </a></li>
+                    <li>|</li>
+                    <li><a href="#">Egestas </a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-3">
+            <input class="search" type="search" name="Search" value=""/>
+            <a href="#" onclick="alert('Search not found!')">
+                <img class="search-icon" src="/resources/images/search-icon.png"/>
+            </a>
+        </div>
+    </div>
+</header>
+
+
+
+<!--<div style="clear: both; border: 2px solid gainsboro;
+  border-radius: 20px;
+  position:relative;
+  width: 70%;
+  margin:20px auto 20px auto;"></div>-->
+
+
+<br/>
+
+<div class="container center-block" >
+    <form th:object="${vivamusForm}" th:action="@{/update}" method="post">
+
+    <!-- fieldsets -->
+    <fieldset class="current" id="personalDetails">
+
+        <!--<th:block th:if="${#fields.hasErrors('${vivamusForm.*}')}">
+            <div th:replace="fragments/alert :: alert (type='danger', message='Field error! Please try again!')">Alert</div>
+        </th:block>-->
+
+        <h3 class="fs-subtitle">About you</h3>
+
+       <!-- //hidden id-->
+            <input  th:value="${person.id}" name="id" class="required fname" type="hidden"/>
+
+        <div class="yourName">
+            <div id="firstName" class="nameContainer">
+                <label for="fname">  First name*</label><br/>
+                <input id="fname" type="text" th:value="${person.firstName}"  name="firstName" class="required fname"/>
+                <!--<span class="help-block" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Required</span>-->
+            </div>
+
+            <div id="lastName" class="nameContainer">
+                <label for="lname">  Last name*</label><br/>
+                <input id="lname" class="required lastName " type="text" th:value="${person.lastName}"  name="lastName" />
+                <!--<span class="help-block" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Required</span>-->
+            </div>
+        </div>
+
+        <div class="emailMobile">
+            <label for="email"> Email address*</label>
+            <br/>
+            <input id="email" class="required email" type="text" th:value="${person.email}"  name="email"  />
+            <!--<span class="help-block" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Required</span>-->
+        </div>
+        <div class="emailMobile">
+            <label for="mobile"> Mobile number*</label>
+            <br/>
+            <input id="mobile" class="required mobile" type="text" th:value="${person.mobile}" name="mobile" placeholder=""/>
+          <!--  <span class="help-block" th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}">Required</span>-->
+        </div>
+
+
+        <div class="actions">
+            <input type="submit" value="Save"/>
+            <button><a th:href="@{/contributors}">Cancel</a></button>
+        </div>
+
+
+
+
+    </fieldset>
+
+</form>
+</div>
+<!--
+    <fieldset id="paymentMethod" class="next">
+        <h3 id="yourDonation"> Your donation </h3>
+        <ul class="tabPayMethod">
+            <button class="tabButton" id="payPal"> PayPal </button>
+            <button class="tabButton" id    ="creditCard"> Credit Card </button>
+        </ul>
+
+            <label for="donationAmount">Donation Amount*</label><br/>
+            <input type="text" name="Donation Amount" id="donationAmount" class="required inputCardInfo"/><br/>
+            <label for="cardHolderName">Card Holder Name*</label><br/>
+            <input type="text" name="Card Holder Name" id="cardHolderName" class="required inputCardInfo"/><br/>
+            <label for="creditCardNo">Credit Card No.*</label><br/>
+            <input type="text" name="Credit Card No." id="creditCardNo" class="required inputCardInfo"/><br/>
+            <label for="cardSecurityCode">Card Security Code*</label><br/>
+            <input type="text" name="Card Security Code" id="cardSecurityCode" class="required inputCardInfo"/><br/>
+            <label for="expiryDate">Expiry Date*</label><br/>
+            <input type="text" name="Expiry Date" id="expiryDate" class="required inputCardInfo"/>
+
+            <img id="visaMastercardLogo" src= "assets/images/visa-mastercard.png" alt="visaMastercardLogo.png" />
+
+
+       &lt;!&ndash; <div class="buttonDiv" id="buttonDiv">
+
+            <input  id="proceed" type="button" name="next" class="actionButton backButton" value="Proceed   " />
+
+            <input  id="back" type="button" name="back" class="actionButton nextButton" value="Back" />
+        </div>&ndash;&gt;
+
+    </fieldset>--><!--<fieldset id ="commentField" class="comment">
+            <h3 class="fs-subtitle">Leave a comment </h3>
+
+            <input id="commentSection" placeholder="Comment here">
+       <br> <input type="checkbox"/><p>Keep me anonymous</p>
+
+    &lt;!&ndash;    <div class="buttonDiv" id="submitButton">
+            <input type="submit" class="actionButton submitButton" id="submit" value="Finish" onclick="submit"/>
+        </div>
+&ndash;&gt;
+    </fieldset>
+    <div class="buttonDiv" id="nextButton">
+        <input  id="next" type="button" name="next" class="actionButton " value="Next" />
+        <input  id="back" type="button" name="back" class="actionButton " value="Back" />
+        &lt;!&ndash;<input id="submitBtn" type="submit" name="submit" value="Submit"/>&ndash;&gt;
+
+    </div>
+
+</form>-->
+
+<!--<p>Count numbers: <output id="result"></output></p>
+<button id="stopWorker">Stop Worker</button>
+<p class="thankYouMsg"></p>-->
+
+<!--//FOOTER starts here-->
+<div>
+
+    <footer>
+
+        <div class="footer">
+
+            <div>
+                <div class="sphere1"></div>
+                <div class="sphere2"></div>
+                <div class="sphere3"></div>
+                <div class="sphere4"></div>
+                <div class="sphere5"></div>
+            </div>
+
+            <div class="containermenus">
+
+                <div class ="footertext">
+
+                    <a href="#" class="footermenu">Pellentesque</a> <h>&nbsp;&nbsp;|&nbsp;&nbsp;</h>
+                    <a href="#" class="footermenu">Et interdum</a> <h>&nbsp;&nbsp;|&nbsp;&nbsp;</h>
+                    <a href="#" class="footermenu">Neque</a> <h>&nbsp;&nbsp;|&nbsp;&nbsp;</h>
+                    <a href="#" class="footermenu">Integer</a> <h>&nbsp;&nbsp;|&nbsp;&nbsp;</h>
+                    <a href="#" class="footermenu">Ullamcorper</a> <h>&nbsp;&nbsp;|&nbsp;&nbsp;</h>
+                    <a href="#" class="footermenu">Sagittis</a>
+
+                </div>
+
+            </div>
+
+            <div>
+                <p class="copyrighttxt">Copyright © 2015 Proin eget ipsum libero </br> All Rights Reserved.</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+</div>
+
+<!-- //FOOTER ends here-->
+<!--
+<script src="/resources/js/jquery-1.9.js"></script>
+<script src="/resources/js/jquery.validate.js"></script>
+<script src="/resources/js/jquery.validate.min.js"></script>
+<script src="/resources/js/formJs.js"></script>
+<script src="/resources/js/jquery.easing.min.js"></script>
+-->
+
+
+
+
+</body>
+</html>

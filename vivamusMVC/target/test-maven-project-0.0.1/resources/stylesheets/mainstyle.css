@@ -1,0 +1,606 @@
+/* line 3, ../sass/mainstyle.scss */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 7, ../sass/mainstyle.scss */
+a, ul {
+  text-decoration: none;
+}
+
+/* line 11, ../sass/mainstyle.scss */
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+  color: #468847;
+  background-color: #DFF0D8;
+  border: 1px solid #D6E9C6;
+}
+
+/* line 19, ../sass/mainstyle.scss */
+.has-success {
+  color: green;
+}
+
+/* line 22, ../sass/mainstyle.scss */
+.has-error {
+  border: 1px solid red !important;
+  border-radius: 10px;
+}
+.help-block{
+  color: rgba(255, 0, 0, 0.76);
+}
+.alert-success{
+  color: green;
+  padding: 2%;
+  font-size: large;
+  text-align: center;
+  background: rgba(0, 244, 0, 0.26);
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  width: 85%;
+  margin: auto;
+
+}
+.alert-danger{
+  color: rgba(255, 25, 25, 0.81);
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  font-style: italic;
+  display: block;
+  font-size: medium;
+  margin-top: 5px;
+  /*margin: 1px auto;*/
+}
+.genError{
+  color: red;
+  background: rgba(255, 142, 178, 0.27);
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-style: italic;
+  border: 1px solid red;
+  padding: 10px 19.7%;
+  width: 60%;
+  margin: 2% auto;
+}
+
+.glyphicon-user{
+  color: white;
+}
+.glyphicon-pencil{
+  color: #3278ff;
+  font-size: 20px;
+
+}
+.glyphicon-trash{
+  color: #ff0000;
+  font-size: 20px;
+}
+
+.addCont{
+  float: right;
+  padding: 1%;
+  background: #2DA8C9;
+  color: white;
+  margin-top: 2%;
+}
+
+/* line 28, ../sass/mainstyle.scss */
+body {
+  height: 100%;
+  /*for sphere design*/
+  /*<!--FOOTER ends here-->*/
+}
+/*START OF HEADER*/
+body header {
+  display: flex;
+  background: #2DA8C9;
+  flex-wrap: wrap;
+  flex-basis: 20%;
+}
+/* line 55, ../sass/style.scss */
+body header a {
+  margin: 0 auto;
+}
+/* line 58, ../sass/style.scss */
+body header a .logo-default {
+  padding: 10px 2%;
+  width: 200px;
+  height: 150px;
+}
+body header a .logo-landscape {
+  display: none;
+  padding: 4px 3%;
+  width: 150px;
+  height: 50px;
+}
+/* line 65, ../sass/style.scss */
+body header .nav {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+}
+/* line 70, ../sass/style.scss */
+body header .nav li {
+  padding: 0 15px;
+  margin: auto;
+}
+/* line 74, ../sass/style.scss */
+body header .nav li a {
+  color: #ffffff;
+  font-size: 30px;
+}
+/* line 80, ../sass/style.scss */
+body header .searchBar {
+  display: flex;
+  margin: auto;
+}
+/* line 87, ../sass/style.scss */
+body header .searchBar input {
+  background: none;
+  outline-style: none;
+  font-style: italic;
+  font-size: 18px;
+  color: #ffffff;
+  border: 1px solid white;
+  border-radius: 7px;
+  padding: 0;
+  /*min-width: 200px;*/
+}
+/* line 100, ../sass/style.scss */
+body header .searchBar img {
+  margin-top: 3px;
+  margin-left: -30px;
+  width: 23px;
+  height: 23px;
+}
+/*END OF HEADER*/
+
+/*DROP-DOWN STYLING*/
+.dropdown {
+  position: relative;
+  display: none;
+}
+
+.dropBtn {
+  outline-style: none;
+  background-color: #2DA8C9;
+  color: white;
+  padding: 20px 21px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+#myInput {
+  border-box: box-sizing;
+  background: url('/resources/images/search-icon.png') no-repeat 14px 12px;
+  background-size: 23px 23px;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  /*min-width: 230px;*/
+  margin-left: -184px;
+  overflow: auto;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd}
+
+.show {display:block;}
+/*END OF DROPDOWN STYLING*/
+
+/*START OF ARTICLE*/
+/* line 111, ../sass/style.scss */
+body section .first-article {
+  text-align: center;
+  color: #2DA8C9;
+  font-size: xx-large;
+  font-family: Arial, sans-serif;
+}
+/* line 117, ../sass/style.scss */
+body section .first-article h1 {
+  font-weight: bold;
+  font-size: 50px;
+  padding: 0;
+  margin: 20px 0 20px 0;
+}
+/* line 125, ../sass/style.scss */
+body section .first-article p {
+  padding: 0;
+  margin: 0;
+}
+/* line 131, ../sass/style.scss */
+body section .first-article hr {
+  margin: 10px auto;
+  width: 65%;
+}
+/*END OF ARTICLE*/
+
+/* line 109, ../sass/mainstyle.scss */
+body #formDiv #msform {
+  padding: 0 20%;
+  margin: 50px auto 10px auto;
+  position: relative;
+  /*      fieldset:not(:first-of-type) {
+          display: none;
+        }*/
+}
+body #formDiv #msform:first-of-type{
+  padding: 0 20%;
+}
+/* line 116, ../sass/mainstyle.scss */
+body #formDiv #msform #progressbar {
+  margin: 0 -17% 30px -17%;
+  padding: 0;
+  overflow: hidden;
+  counter-reset: step;
+}
+/* line 122, ../sass/mainstyle.scss */
+body #formDiv #msform #progressbar li {
+  list-style-type: none;
+  color: #2DA8C9;
+  width: 33.33%;
+  float: left;
+  position: relative;
+  text-align: center;
+}
+/* line 135, ../sass/mainstyle.scss */
+body #formDiv #msform #progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 60px;
+  line-height: 60px;
+  display: block;
+  font-size: 40px;
+  color: #2DA8C9;
+  background: #FFFFFF;
+  border-radius: 50%;
+  border: 10px solid #bfbfbf;
+  margin: auto auto auto auto;
+}
+/* line 149, ../sass/mainstyle.scss */
+body #formDiv #msform #progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 10px;
+  background: #bfbfbf;
+  position: absolute;
+  left: -50%;
+  top: 35px;
+  z-index: -1;
+  /*put it behind the numbers*/
+}
+/* line 159, ../sass/mainstyle.scss */
+body #formDiv #msform #progressbar li:first-child:after {
+  content: none;
+}
+/* line 163, ../sass/mainstyle.scss */
+body #formDiv #msform #progressbar li.active:before {
+  background: #2DA8C9;
+  color: #FFFFFF;
+}
+/* line 167, ../sass/mainstyle.scss */
+body #formDiv #msform #progressbar li.active:before + body #formDiv #msform #progressbar li:active:after {
+  background: #FFFFFF;
+  color: #2DA8C9;
+}
+  /* line 210, ../sass/mainstyle.scss */
+body #formDiv #msform fieldset {
+  background: #EBEBEB;
+  border: none;
+  border-radius: 10px;
+  padding: 20px 5%;
+  box-sizing: border-box;
+  color: #2DA8C9;
+  font-size: 20px;
+
+}
+/* line 221, ../sass/mainstyle.scss */
+body #formDiv #msform fieldset h3, body #formDiv #msform fieldset #firstName, body #formDiv #msform fieldset #lastName, body #formDiv #msform fieldset .emailMobile, body #formDiv #msform fieldset label {
+  text-align: left;
+  font-family: Arial;
+  margin: 3% 0;
+}
+/* line 226, ../sass/mainstyle.scss */
+body #formDiv #msform fieldset .yourName {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+/* line 233, ../sass/mainstyle.scss */
+body #formDiv #msform fieldset .yourName #firstName, body #formDiv #msform fieldset .yourName #lastName {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 49%;
+  overflow: hidden;
+  margin: 5px 0;
+}
+body #formDiv #msform fieldset .yourName #firstName label, body #formDiv #msform fieldset .yourName #lastName label{
+  margin: 5px 5px;
+}
+/* line 237, ../sass/mainstyle.scss */
+body #formDiv #msform fieldset .yourName #firstName input, body #formDiv #msform fieldset .yourName #lastName input {
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  display: block;
+  font-family: Arial, sans-serif;
+  resize: both;
+  height: 55px;
+  outline: none;
+  font-size: 18px;
+}
+/* line 245, ../sass/mainstyle.scss */
+body #formDiv #msform fieldset .emailMobile {
+  border: none;
+  clear: both;
+}
+/* line 251, ../sass/mainstyle.scss */
+body #formDiv #msform fieldset .emailMobile label {
+  margin: 5px 5px;
+}
+/* line 254, ../sass/mainstyle.scss */
+body #formDiv #msform fieldset .emailMobile input, body #formDiv #msform fieldset .emailMobile textarea {
+  border: none;
+  border-radius: 10px;
+  resize: both;
+  width: 100%;
+  height: 55px;
+  outline: none;
+  font-size: 18px;
+}
+
+/*SECOND FIELDSET*/
+body #formDiv #msform fieldset .tabPayMethod{
+  display: flex;
+}
+
+/* line 285, ../sass/style.scss */
+body #formDiv #msform fieldset .tabPayMethod .tabBtn {
+  background-color: #2DA8C9;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: x-large;
+  border: none;
+  padding: 5px 0;
+  border-radius: 10px 10px 0 0;
+  width: 50%;
+  height: 100%;
+  outline-style: none;
+  margin-top: 10px;
+}
+/*body #formDiv #msform fieldset .tabPayMethod input:focus {
+  background-color: #FFFFFF;
+  color: #2DA8C9;
+}
+
+body #formDiv #msform fieldset .tabPayMethod input:last-child:focus{
+  background-color: #2DA8C9;
+  color: #FFFFFF;
+}*/
+
+/* line 295, ../sass/style.scss */
+body #formDiv #msform fieldset .tabPayMethod .tabBtnWhite{
+  background-color: #FFFFFF;
+  color: #2DA8C9;
+  height: 44px;
+  margin-top: 5px;
+  border-radius: 10px 10px 0 0;
+}
+/* line 301, ../sass/style.scss */
+body #formDiv #msform fieldset .donationDiv {
+  background: url(/resources/images/visa-mastercard.png) no-repeat #FFFFFF;
+  background-size: 240px;
+  background-position: 89% 98%;
+  padding: 15px 7% 45px 7%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 0 0 10px 10px;
+}
+/* line 308, ../sass/style.scss */
+body #formDiv #msform fieldset .donationDiv label {
+  display: block;
+  margin-top: 10px;
+  float: left;
+}
+/* line 315, ../sass/style.scss */
+body #formDiv #msform fieldset .donationDiv input {
+  clear: both;
+  border: none;
+  border-radius: 10px;
+  background-color: #EBEBEB;
+  display: block;
+  font-family: Arial, sans-serif;
+  resize: both;
+  min-width:100%;
+  height: 55px;
+  outline: none;
+  font-size: 18px;
+}
+/* line 321, ../sass/style.scss */
+body #formDiv #msform fieldset .donationDiv #cardSecurityCode, body #formDiv #msform fieldset .donationDiv #expiryDate {
+  clear: left;
+  min-width: 12%;
+}
+/* line 327, ../sass/style.scss */
+body #formDiv #msform fieldset .donationDiv .expiryDiv {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+/* line 333, ../sass/style.scss */
+body #formDiv #msform fieldset .donationDiv #visaMastercardLogo {
+  align-self: flex-end;
+  height: 60px;
+  min-width: 30%;
+  display: flex;
+
+}
+/*END OF SECOND FIELDSET*/
+
+/*THIRD FIELDSET*/
+body #formDiv #msform fieldset .comment{
+  outline-style: none;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 150px;
+}
+body #formDiv #msform fieldset .checkbox-inline{
+  display: inline-block;
+  border-radius: 10px;
+  width: 27px;
+  height: 27px;
+  outline: 0;
+}
+/*END OF THIRD FIELDSET*/
+
+/* line 307, ../sass/mainstyle.scss */
+body #formDiv #msform .buttonDiv {
+  clear: both;
+  border: none;
+  margin: 3% 0 0 -55px;;
+  position: relative !important;
+}
+/* line 313, ../sass/mainstyle.scss */
+body #formDiv #msform .buttonDiv #back {
+  display: none;
+  text-align: left;
+  margin-right: 46%
+}
+body #formDiv #msform .buttonDiv #nextButton{
+  padding: 1.5% 7%;
+}
+
+body #formDiv #msform .buttonDiv #submitBtn {
+  display: none;
+}
+/* line 320, ../sass/mainstyle.scss */
+body #formDiv #msform .buttonDiv .actionButton {
+  border: none;
+  border-radius: 10px;
+  float: right;
+  background: #2DA8C9;
+  color: #FFFFFF;
+  outline: none;
+  padding: 1.5% 6%;
+  position: relative !important;
+  font-size: 210%;
+}
+/* line 334, ../sass/mainstyle.scss */
+body #formDiv #msform .buttonDiv .actionButton:hover, body #formDiv #msform .buttonDiv .actionButton:focus {
+  border-radius: 10px;
+  border: none;
+  background: #aab0bb;
+  text-shadow: 5px 0 5px 0 black;
+}
+/* line 347, ../sass/mainstyle.scss */
+
+/*FOOTER STYLING*/
+.panel-footer{
+  padding:10px 15px;
+  background-color:#f5f5f5;
+  border-top:1px solid #ddd;
+  border-bottom-right-radius:3px;
+  border-bottom-left-radius:3px;
+  clear: both
+}
+/* line 362, ../sass/style.scss */
+body footer {
+  text-align: center;
+  background-color: #BFBFBF!important;
+  margin-top: 10%;
+  clear: both;
+}
+/* line 366, ../sass/style.scss */
+body footer .sphere, body footer .footer-menu {
+  list-style: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+/* line 372, ../sass/style.scss */
+body footer .sphere li {
+  padding: 5px;
+  margin: 10px 20px;
+  background: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+/* line 381, ../sass/style.scss */
+body footer .footer-menu li {
+  display: inline;
+  margin: 10px auto;
+  padding: 0 10px;
+}
+/* line 386, ../sass/style.scss */
+body footer .footer-menu li a {
+  margin: 10px auto;
+  letter-spacing: 1px;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  font-size: 20px;
+}
+/* line 395, ../sass/style.scss */
+body footer .copyright {
+  font-family: Arial, serif;
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 990px){
+  body header{
+    flex-wrap: nowrap;
+    position: fixed;
+    width: 100%;
+    margin-top: -75px;
+    padding: 0;
+    z-index: 1;
+  }
+  body header a{
+    margin: 0;
+    padding: 0;
+  }
+  body header .nav, body header .searchBar input, body header .searchBar img, body header a .logo-default{
+    display: none;
+  }
+  body header a .logo-landscape, .dropdown{
+    display: inline-block;
+  }
+  body section .first-article{
+    margin-top: 75px;
+  }
+}
+
+@media only screen and (max-width: 925px) {
+  body #formDiv #msform fieldset .yourName #firstName, body #formDiv #msform fieldset .yourName #lastName {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    overflow: hidden;
+  }
+}
